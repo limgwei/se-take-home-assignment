@@ -4,16 +4,18 @@ const props = defineProps({
   robot: {
     type: Object,
     required: true,
-  }
+  },
+  // processingTime:{
+  //   type:Number,
+  //   required:true
+  // }
 });
 </script>
 
 <template>
   <div>
-    <div v-if="robot.currentHandling" :class="{vip:robot.currentHandling.isVip}" class="text-decoration">Robot {{ robot.robotNumber }} is processing Order {{ robot.currentHandling.orderNumber }}</div>
+    <div v-if="robot.currentHandling" :class="{vip:robot.currentHandling.isVip}" class="text-decoration">Robot {{ robot.robotNumber }} is processing Order {{ robot.currentHandling.orderNumber }} </div>
     <div v-else class="text-decoration">Robot {{ robot.robotNumber }} is Idle</div>
-    <hr class="divider">
-
   </div>
 </template>
 
@@ -25,14 +27,13 @@ const props = defineProps({
 }
 
 .text-decoration{
-  font-size: 30px;
+  font-size: 20px;
   width: 100%;
   text-align: center;
   border: 1px solid black;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
-.divider {
-  border-top: 3px solid #bbb;
-}
 
 </style>

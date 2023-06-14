@@ -3,13 +3,18 @@ const props = defineProps({
   order: {
     type: Object,
     required: true,
+  },
+  processingTime:{
+    type:Number,
+    required:true,
   }
 });
 </script>
 
 <template>
-  <div :class="{ vip: order.isVip}" class="text-decoration">{{ order.orderNumber }}</div>
-  <hr class="divider">
+  <div :class="{ vip: order.isVip}" class="text-decoration">{{ order.orderNumber }}
+  <label v-if="order.count != 0">Left: {{ processingTime - order.count }}</label>
+  </div>
 </template>
 
 
@@ -19,14 +24,12 @@ const props = defineProps({
   color: red;
 }
 .text-decoration{
-  font-size: 30px;
+  font-size: 20px;
   width: 100%;
   text-align: center;
   border: 1px solid black;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
-.divider {
-  border-top: 3px solid #bbb;
-  width: 100%;
-}
 </style>
