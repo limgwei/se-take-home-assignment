@@ -6,14 +6,14 @@ const props = defineProps({
   },
   processingTime:{
     type:Number,
-    required:true,
+    required:false,
   }
 });
 </script>
 
 <template>
   <div :class="{ vip: order.isVip}" class="text-decoration">{{ order.orderNumber }}
-  <label v-if="order.count != 0">Left: {{ processingTime - order.count }}</label>
+  <label v-show="order.status==1">Left: {{ processingTime - order.count }}</label>
   </div>
 </template>
 
